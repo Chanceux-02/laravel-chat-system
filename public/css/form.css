@@ -1,0 +1,8 @@
+.center-div-parent{
+    /* margin: auto; */
+    width: 100%;
+}
+.center-div{
+    width: 60%;
+    margin: auto;
+}
