@@ -47,8 +47,8 @@ class AuthController extends Controller
     public function register(Request $request){
 
         $validate = Validator::make($request->all(),[
-            "fname" => ['required', 'min:3|max:10'],
-            "lname" => ['required', 'min:3|max:10'],
+            "fname" => ['required', 'min:3','max:10'],
+            "lname" => ['required', 'min:3','max:10'],
             "age" => ['required', 'max:3'],
             "email" => ['required', 'email'],
             "password" => 'required'
@@ -63,11 +63,13 @@ class AuthController extends Controller
         $lname = strip_tags($request->input('lname'));
         $age = $request->input('age');
         $profile_pic = strip_tags($request->input('image'));
-        $profile_pic = strip_tags($request->input('bio'));
+        $bio = strip_tags($request->input('bio'));
         $username = strip_tags($request->input('username'));
         $email = strip_tags($request->input('email'));
         $password = strip_tags($request->input('password'));
-
+        
+        $renameImage = str_replace(" ", "-", $profile_pic);
+        $toLowerCase = strtolower($renameImage);
         $hashedPassword = Hash::make($password);
 
         $user = new User;
@@ -83,8 +85,8 @@ class AuthController extends Controller
         $profile->first_name = $fname;
         $profile->last_name = $lname;
         $profile->age = $age;
-        $profile->image_path = $profile_pic;
-        $profile->bio = $profile_pic;
+        $profile->image_path = $toLowerCase;
+        $profile->bio = $bio;
         $profile->save();
 
         return view('auth.login')->with('message','Logged in Successful!');

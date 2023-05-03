@@ -2,20 +2,26 @@
 
 <body>
     <h1 class="text-center">Chat System</h1>
-    
-    <div class="container border">
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button class="btn btn-primary" type="submit">Log out</button>
+        </form>    
+        <div class="container border">
         @foreach ($message as $messages)
-            <div class="d-flex justify-content-start flex-column">
-                <span class="fw-lighter text-dark ps-1">name sender1</span>
-                <p class="bg-primary mt-0"> {{$messages->message}} </p>
+
+            @if (!$messages->u_id === auth()->id())
+                <div class="d-flex justify-content-start flex-column">
+                    <span class="fw-lighter text-dark ps-1">name sender1</span>
+                    <p class="bg-primary mt-0"> {{$messages->message}}</p>
+                </div>                
+            @endif
+            <div class="d-flex justify-content-end">
+                <div>
+                    <span class="fw-lighter text-dark ps-1">name sender 2</span>
+                    <p class="bg-primary ">{{$messages->message}}</p>
+                </div>
             </div>
         @endforeach
-        <div class="d-flex justify-content-end">
-            <div>
-                <span class="fw-lighter text-dark ps-1">name sender 2</span>
-                <p class="bg-primary ">messages</p>
-            </div>
-        </div>
 
         <form action="{{ route('send-message')}}" method="post" class="d-flex">
             @csrf

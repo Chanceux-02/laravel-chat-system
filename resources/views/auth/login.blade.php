@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="center-div">
-
+          <p>Don't have an account? Register <a href="{{route('register')}}">here!</a></p>
             <form action="{{route('login')}}" method="POST">
               @csrf
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>

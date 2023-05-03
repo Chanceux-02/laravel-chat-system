@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CreateController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,13 +25,12 @@ Route::get('/login', function () {
 
 //routes that have a queries and other functions
 Route::get('/', [ShowController::class, 'index'])
-    ->middleware('auth');;
+    ->middleware('auth');
 
-Route::post('/send/group/message', [CreateController::class, 'sendGroupMessage'])
+Route::post('/send/group/message', [PostController::class, 'sendGroupMessage'])
     ->name('send-message');
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login')->middleware('guest');
-Route::get('/logout', [AuthController::class, 'logout'])
-    ->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/register', [AuthController::class, 'register'])
     ->name('register')->middleware('guest');
