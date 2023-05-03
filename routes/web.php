@@ -24,9 +24,14 @@ Route::get('/login', function () {
 });
 
 //routes that have a queries and other functions
-Route::get('/', [ShowController::class, 'index']);
+Route::get('/', [ShowController::class, 'index'])
+    ->middleware('auth');;
 
-Route::post('/send/group/message', [CreateController::class, 'sendGroupMessage'])->name('send-message');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/send/group/message', [CreateController::class, 'sendGroupMessage'])
+    ->name('send-message');
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('login')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
+Route::post('/register', [AuthController::class, 'register'])
+    ->name('register')->middleware('guest');

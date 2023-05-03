@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     public function login(Request $request){
-        // $email = $request->input('email');
-        // $pwd = $request->input('password');
-        // $gethashedPwd = DB::table('user_table')->where('email',$email)->get();
-        // dd($request);
+        
         $validated = Validator::make($request->all(),[
             "email" => ['required', 'email'],
             "password" => 'required'
