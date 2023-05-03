@@ -45,15 +45,28 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
-        // dd($request);
-        $fname = $request->input('fname');
-        $lname = $request->input('lname');
+
+        $validate = Validator::make($request->all(),[
+            "fname" => ['required', 'min:3|max:10'],
+            "lname" => ['required', 'min:3|max:10'],
+            "age" => ['required', 'max:3'],
+            "email" => ['required', 'email'],
+            "password" => 'required'
+        ]);
+
+        if($validate->fails()){
+            $errMessage = $validate->messages();
+            return view('auth.register')->with('message',$errMessage);
+        }
+
+        $fname = strip_tags($request->input('fname'));
+        $lname = strip_tags($request->input('lname'));
         $age = $request->input('age');
-        $profile_pic = $request->input('image');
-        $profile_pic = $request->input('bio');
-        $username = $request->input('username');
-        $email = $request->input('email');
-        $password = $request->input('password');
+        $profile_pic = strip_tags($request->input('image'));
+        $profile_pic = strip_tags($request->input('bio'));
+        $username = strip_tags($request->input('username'));
+        $email = strip_tags($request->input('email'));
+        $password = strip_tags($request->input('password'));
 
         $hashedPassword = Hash::make($password);
 
@@ -74,7 +87,7 @@ class AuthController extends Controller
         $profile->bio = $profile_pic;
         $profile->save();
 
-        return view('auth.login');
+        return view('auth.login')->with('message','Logged in Successful!');
 
     }
 }

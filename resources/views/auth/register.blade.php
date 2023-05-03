@@ -23,7 +23,7 @@
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Age</label>
                 <div class=>
                   <div class="">
-                    <input type="text" name="age" value="{{old('age')}}" class="form-control" id="inputEmail3">
+                    <input type="number" name="age" value="{{old('age')}}" class="form-control" id="inputEmail3">
                   </div>
                 </div>
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Profile Picture</label>
