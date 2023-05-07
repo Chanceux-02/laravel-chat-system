@@ -40,9 +40,7 @@ class AuthController extends Controller
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')
-        ->with('message', 'Logout successful')
-        ->with('title','Log in Page');
+        return redirect('/login')->with('message', 'Logout successful');
     }
 
     public function register(Request $request){
