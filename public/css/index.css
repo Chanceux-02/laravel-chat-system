@@ -1,0 +1,40 @@
+.center-div-parent{
+    width: 100%;
+}
+.center-div{
+    width: 60%;
+    margin: auto;
+}
+.other-user{
+    width: fit-content;
+}
+.logged-user{
+    margin-left: 30%;
+}
+.user-name-font{
+    font-size: xx-small;
+}
+.contact{
+    width: 30%;
+    margin-right: 1%;
+    padding: 2%;
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .wrapper{
+        max-width: 100%;
+        margin: auto;
+        margin-bottom: 5%;
+    }
+    .user-name-font {
+        font-size: x-small;
+        color: rgb(188, 181, 181);
+    }
+    .contact{
+        width: 30%;
+        margin-right: 1%;
+        padding: 2%;
+        display:block;
+    }
+  }

@@ -1,8 +1,17 @@
-.center-div-parent{
-    /* margin: auto; */
+
+.send-form {
     width: 100%;
 }
-.center-div{
-    width: 60%;
-    margin: auto;
+form.d-flex input {
+    width: 70%;
 }
+form.d-flex button {
+    width: 20%;
+}
+
+@media screen and (min-width: 600px) {
+    .form.d-flex button {
+        width: 25%;
+        margin-right: 5%;
+    }
+  }
