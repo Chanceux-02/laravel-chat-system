@@ -40,8 +40,9 @@ class AuthController extends Controller
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return redirect('/login')->with('message', 'Logout successful');
+        return redirect('/login')
+        ->with('message', 'Logout successful')
+        ->with('title','Log in Page');
     }
 
     public function register(Request $request){
@@ -62,14 +63,18 @@ class AuthController extends Controller
         $fname = strip_tags($request->input('fname'));
         $lname = strip_tags($request->input('lname'));
         $age = $request->input('age');
-        $profile_pic = strip_tags($request->input('image'));
+        $profile_pic_img = $request->file('image');
+
+        $uniquName = $profile_pic_img->hashName();
         $bio = strip_tags($request->input('bio'));
         $username = strip_tags($request->input('username'));
         $email = strip_tags($request->input('email'));
         $password = strip_tags($request->input('password'));
         
-        $renameImage = str_replace(" ", "-", $profile_pic);
+        $renameImage = str_replace(" ", "-", $fname);
         $toLowerCase = strtolower($renameImage);
+        $imageName = $toLowerCase."-".$uniquName;
+        $profile_pic_img->storeAs('public/profile-pics', $imageName);
         $hashedPassword = Hash::make($password);
 
         $user = new User;
@@ -85,7 +90,7 @@ class AuthController extends Controller
         $profile->first_name = $fname;
         $profile->last_name = $lname;
         $profile->age = $age;
-        $profile->image_path = $toLowerCase;
+        $profile->image_path = $imageName;
         $profile->bio = $bio;
         $profile->save();
 

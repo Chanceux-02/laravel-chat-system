@@ -27,7 +27,7 @@
             </div>    
             <div class="container border rounded bg-light p-3">
                 <div class="chat-container d-flex flex-column-reverse">
-                    @foreach ($message as $messages)
+                    @foreach ($toUser as $messages)
 
                         @if ($messages->u_id !== auth()->id())
                             <div class="d-flex justify-content-start flex-column">
