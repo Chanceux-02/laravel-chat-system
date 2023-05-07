@@ -1,3 +1,7 @@
+
+::-webkit-scrollbar {
+    width: 6px;
+  }
 .center-div-parent{
     width: 100%;
 }
@@ -6,6 +10,7 @@
     margin: auto;
 }
 .other-user{
+    width: -moz-fit-content;
     width: fit-content;
 }
 .logged-user{
@@ -20,12 +25,60 @@
     padding: 2%;
     display: none;
 }
+.users-status{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.name-font{
+    font-size: xx-small;
+    color: black;
+}
+.active-circle{
+    background-color: greenyellow;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 20px;
+    left: -65px;
+}
+.deactive-circle{
+    background-color: rgb(161, 172, 143);
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 20px;
+    left: -65px;
+}
+.nav-active-circle{
+    background-color: greenyellow;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 20px;
+    left: -65px;
+}
+.nav-deactive-circle{
+    background-color: rgb(161, 172, 143);
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 20px;
+    left: -65px;
+}
+.nav-contacts{
+    width: 100%;
+}
+.chat-container{
+    height: 75vh;
+    overflow-y: scroll;
+}
 
 @media screen and (min-width: 600px) {
     .wrapper{
         max-width: 100%;
         margin: auto;
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
     }
     .user-name-font {
         font-size: x-small;
@@ -37,4 +90,25 @@
         padding: 2%;
         display:block;
     }
+    .n-navbar{
+        padding: 0px 50px 0px 50px;
+    }
   }
+@media screen and (max-width:770px) {
+    .active-circle{
+        background-color: greenyellow;
+        width: 20px;
+        height: 15px;
+        position: relative;
+        top: 20px;
+        left: -50px;
+    }
+    .deactive-circle{
+        background-color: rgb(161, 172, 143);
+        width: 20px;
+        height: 15px;
+        position: relative;
+        top: 20px;
+        left: -50px;
+    }
+}
