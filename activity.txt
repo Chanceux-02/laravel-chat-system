@@ -1,5 +1,6 @@
 ; make model first before running migrations
 ; adding middleware
 ; make validations for inputs and queries
+;kay adon ang query sang singlechat
 
-//kay adon ang query sang singlechat
+// ubrahan jquery kag ajax para sa realtime chat
