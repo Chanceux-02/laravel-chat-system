@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('p_id');
             $table->unsignedBigInteger('c_id');
             $table->unsignedBigInteger('cm_id');
+            $table->unsignedBigInteger('receiver_id')->after('p_id');
+            $table->foreign('receiver_id')->references('p_id')->on('profile_table')->onDelete('cascade');
             $table->foreign('p_id')->references('p_id')->on('profile_table')->onDelete('cascade');
             $table->foreign('c_id')->references('c_id')->on('chat_table')->onDelete('cascade');
             $table->foreign('cm_id')->references('cm_id')->on('chat_member_table')->onDelete('cascade')->nullable();

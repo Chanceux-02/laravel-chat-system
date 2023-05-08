@@ -51,6 +51,7 @@
                     <input type="hidden" name="p_id" value="2">
                     <input type="hidden" name="c_id" value="">
                     <input type="hidden" name="cm_id" value="">
+                    <input type="hidden" name="receiver_id" value="{{request('id')}}">
                     <input type="text" name="message" placeholder="Message" class="form-control">
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>
