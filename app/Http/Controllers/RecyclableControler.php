@@ -12,6 +12,7 @@ class RecyclableControler extends Controller
         $message = DB::table('profile_table')
         ->join('messages_table', 'profile_table.p_id', '=', 'messages_table.p_id')
         ->select('profile_table.*', 'messages_table.*')
+        ->where('messages_table.receiver_id', 0)
         ->orderByDesc('messages_table.created_at')
         ->get();
 

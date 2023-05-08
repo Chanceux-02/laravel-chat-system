@@ -7,6 +7,8 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isNull;
+
 class PostController extends Controller
 {
     public function sendGroupMessage(Request $request){
@@ -20,6 +22,10 @@ class PostController extends Controller
         $messageInput = $request->input('message');
         $receiverId = $request->input('receiver_id');
 
+        if(is_null($receiverId)){
+            $receiverId = 0;
+        }
+        
         $message = new Message;
         $message->p_id = $p_id;
         $message->c_id = $chat_id;
