@@ -4,3 +4,6 @@
 ;kay adon ang query sang singlechat
 
 // ubrahan jquery kag ajax para sa realtime chat
+
+// ma realtime ang pag chat tapos himoan profile ang kada user nga ma manage nila ang ila nga profile
+// CRUD operation
