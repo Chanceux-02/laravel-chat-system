@@ -1,5 +1,4 @@
-
-@foreach ($message as $messages)
+@foreach ($toUser as $messages)
 
     @if ($messages->u_id !== auth()->id())
         <div class="d-flex justify-content-start flex-column">
@@ -15,6 +14,5 @@
             </div>
         </div>
     @endif
-                    
-@endforeach
 
+@endforeach

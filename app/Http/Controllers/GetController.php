@@ -25,6 +25,6 @@ class GetController extends Controller
                 ];
         $datas = $method->allUserMessages($arr);
 
-        return view('pages.singleChat', $datas);
+        return view('ajax.singleChat', $datas);
     }
 }
