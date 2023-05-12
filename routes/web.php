@@ -25,6 +25,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+Route::get('/check-login', [AuthController::class, 'checkLogin']);
 
 //routes that have a queries and other functions
 
@@ -35,8 +36,7 @@ Route::get('/group-chat/fetch', [ShowController::class, 'groupChat'])
 
 Route::get('/chat-to-user/{id}', [GetController::class, 'singleChat'])
     ->name('single-chat')->middleware('auth');
-Route::get('/chat-to-user-ajax/{id}', [GetController::class, 'singleChatAjax'])
-    ->middleware('auth');
+Route::get('/chat-to-user-ajax/{id}', [GetController::class, 'singleChatAjax']);
 
 Route::post('/send/group/message', [PostController::class, 'sendGroupMessage'])
     ->name('send-message');

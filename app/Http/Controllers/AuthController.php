@@ -95,4 +95,13 @@ class AuthController extends Controller
         return view('auth.login')->with('message','Logged in Successful!');
 
     }
+
+    public function checkLogin(){
+        $check = Auth::check();
+        if ($check) {
+           return response()->json(['logged_in' => true]);
+        } else {
+           return response()->json(['logged_in' => false]);
+        }
+    }
 }

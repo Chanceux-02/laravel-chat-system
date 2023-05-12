@@ -79,10 +79,30 @@ $(document).ready(function(){
         });
     }
     
-        
+    function checkIfLoggedIn(){
+        $.ajax({
+            type: 'GET',
+            url: '/check-login',
+            success: function(response) {
+                if (response.logged_in) {
+                     setInterval(function() {
+                        let this_attr = window.location.href;
+                        if (this_attr == 'http://127.0.0.1:8000/') {
+                            fetchData();
+                        } else {
+                            clickedUser();   
+                        }
+                      }, interval);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) { // if ajax is not success
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
+    checkIfLoggedIn()
     sendData();
     sendDataSingleChat();
-    setInterval(fetchData, interval);
-    setInterval(clickedUser, interval);
     
 });
