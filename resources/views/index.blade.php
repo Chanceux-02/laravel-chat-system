@@ -8,7 +8,7 @@
         <div class="wrapper d-flex">
             {{-- contacts --}}
             <div class="border rounded contact">
-                <a class="text-decoration-none" href="{{'/'}}">
+                <a class="text-decoration-none mainUserLink" href="{{'/'}}">
                     <div class="d-flex align-items-center py-2 border-bottom ">
                         <img src="{{ asset('storage/profile-pics/pp1.jpg') }}" class="users-status border rounded-circle">
                         <span class="active-circle border rounded-circle"></span>

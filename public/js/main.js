@@ -21,8 +21,30 @@ $(document).ready(function(){
             });
         });
     }
+     //for single chat sending data
+     function sendDataSingleChat() {
+        var index_form_btn = $('#singleChatSubmitBtn');
+        index_form_btn.on('click', function(event) {
+            event.preventDefault();  
+            let form = $(this).closest('form');
+            var url = form.attr('action');
+            var data = form.serialize();
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                success: function(data) {
+                    console.log('sent!');
+                    form[0].reset();
+                },
+                error: function(jqXHR, textStatus, errorThrown) { // if ajax is not success
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        });
+    }
         
-    //to fetch in realtime
+    //to fetch in realtime in index
     var interval = 500;    
     let url = '/group-chat/fetch';
     function fetchData() {  
@@ -37,12 +59,17 @@ $(document).ready(function(){
             }
         });
     }
+    
 
-    function fetchData() {  
-        let url = '/chat-to-user/{id}';
+    //for single chat fetch in realtime
+    function clickedUser(){
+        let this_attr = window.location.href;
+        let parts = this_attr.split('/');
+        let id = parts[parts.length - 1];
+        let userurl = '/chat-to-user-ajax/'+id;
         $.ajax({
             type: 'GET',
-            url: url,
+            url: userurl,
             success: function(data) {
                 $('#singleChatContainer').html(data);
             },
@@ -51,24 +78,11 @@ $(document).ready(function(){
             }
         });
     }
-
+    
+        
     sendData();
+    sendDataSingleChat();
     setInterval(fetchData, interval);
-
+    setInterval(clickedUser, interval);
     
-    // Extract the last part of the URL (i.e. the ID)
-    
-    let test132 = $('.contactUser');
-    test132.on('click', function(event) {
-        event.preventDefault();  
-        test132.each(function(){
-            let this_ = $(this);
-            this_.click(function(){
-                console.log('test');
-                const test = window.location.href;
-                const id = test.substring(test.lastIndexOf('/') + 1);
-                console.log(test);
-            });
-        });
-    });
 });

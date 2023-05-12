@@ -16,7 +16,7 @@
                     </div>
                 </a>
                 @foreach ($users as $user)
-                    <a class="text-decoration-none" href="{{route('single-chat', ['id'=> $user->p_id])}}">
+                    <a class="text-decoration-none contactUser" href="{{route('single-chat', ['id'=> $user->p_id])}}">
                         <div class="d-flex align-items-center py-2 border-bottom ">
                             <img src="{{ asset('storage/profile-pics/' . $user->image_path) }}" class="users-status border rounded-circle">
                             <span class="active-circle border rounded-circle"></span>
@@ -53,7 +53,7 @@
                     <input type="hidden" name="cm_id" value="">
                     <input type="hidden" name="receiver_id" value="{{request('id')}}">
                     <input type="text" name="message" placeholder="Message" class="form-control">
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary" id="singleChatSubmitBtn">Send</button>
                 </form>
             </div>
         </div>

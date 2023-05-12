@@ -34,6 +34,6 @@ class PostController extends Controller
         $message->message = $messageInput;
         $message->save();
 
-        return redirect('/');
+        // return redirect('/');
     }
 }
