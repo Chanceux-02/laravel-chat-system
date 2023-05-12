@@ -4,4 +4,5 @@
 ; kay adon ang query sang singlechat
 ; fetching data in realtime is done
 
-// ubrahan jquery kag ajax para sa realtime chat
+// make a crud operation for user profile
+// make a feature that a user can delete its message
