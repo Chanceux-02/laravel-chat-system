@@ -8,7 +8,7 @@
         <div class="wrapper d-flex">
             {{-- contacts --}}
             <div class="border rounded contact">
-                <a class="text-decoration-none" href="{{'/'}}">
+                <a class="text-decoration-none mainUserLink" href="{{'/'}}">
                     <div class="d-flex align-items-center py-2 border-bottom ">
                         <img src="{{ asset('storage/profile-pics/pp1.jpg') }}" class="users-status border rounded-circle">
                         <span class="active-circle border rounded-circle"></span>
@@ -16,7 +16,7 @@
                     </div>
                 </a>
                 @foreach ($users as $user)
-                    <a class="text-decoration-none" href="{{route('single-chat', ['id'=> $user->p_id])}}">
+                    <a class="text-decoration-none contactUser" href="{{route('single-chat', ['id'=> $user->p_id])}}">
                         <div class="d-flex align-items-center py-2 border-bottom ">
                             <img src="{{ asset('storage/profile-pics/' . $user->image_path) }}" class="users-status border rounded-circle">
                             <span class="active-circle border rounded-circle"></span>
@@ -25,9 +25,9 @@
                     </a>
                 @endforeach
             </div>    
-            <div class="container border rounded bg-light p-3">
-                <div class="chat-container d-flex flex-column-reverse">
-                    @foreach ($message as $messages)
+            <div class="container border rounded bg-light p-3" id="chatWrapper">
+                <div class="chat-container d-flex flex-column-reverse" id="chatContainer">
+                    {{-- @foreach ($message as $messages)
 
                         @if ($messages->u_id !== auth()->id())
                             <div class="d-flex justify-content-start flex-column">
@@ -44,16 +44,17 @@
                             </div>
                         @endif
                     
-                    @endforeach
+                    @endforeach --}}
                 </div>
-                <form action="{{ route('send-message')}}" method="post" class="d-flex justify-content-between my-2 ">
+                
+                <form action="{{ route('send-message')}}" method="post" id="indexForm" class="d-flex justify-content-between my-2 ">
                     @csrf
                     <input type="hidden" name="p_id" value="2">
                     <input type="hidden" name="c_id" value="">
                     <input type="hidden" name="cm_id" value="">
                     <input type="text" name="message" placeholder="Message" class="form-control">
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </form>
+                    <button type="submit" class="btn btn-primary" id="sendForm1">Send</button>
+                </form> 
             </div>
         </div>
     </div>

@@ -12,4 +12,10 @@ class ShowController extends Controller
         $datas = $method->allUserMessages($title);
         return view('index', $datas);
     }
+    public function groupChat(){
+        $method = new RecyclableControler;
+        $title = ['title' => 'Group Chat'];
+        $datas = $method->allUserMessages($title);
+        return view('ajax.group_chat', $datas);
+        }
 }

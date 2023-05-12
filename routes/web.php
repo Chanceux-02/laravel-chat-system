@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 //for returning view without queries or functions
+
 Route::get('/register', function () {
     return view('auth.register');
 });
@@ -25,10 +27,16 @@ Route::get('/login', function () {
 });
 
 //routes that have a queries and other functions
+
 Route::get('/', [ShowController::class, 'index'])
     ->middleware('auth');
+Route::get('/group-chat/fetch', [ShowController::class, 'groupChat'])
+    ->name('group-chat-fetch');
+
 Route::get('/chat-to-user/{id}', [GetController::class, 'singleChat'])
     ->name('single-chat')->middleware('auth');
+Route::get('/chat-to-user-ajax/{id}', [GetController::class, 'singleChatAjax'])
+    ->middleware('auth');
 
 Route::post('/send/group/message', [PostController::class, 'sendGroupMessage'])
     ->name('send-message');
