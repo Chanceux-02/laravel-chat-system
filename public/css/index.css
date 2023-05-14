@@ -73,6 +73,15 @@
     height: 75vh;
     overflow-y: scroll;
 }
+._search input{
+    font-size: xx-small;
+    width: 100% !important;
+    margin-bottom: 5px;
+}
+._search button{
+    width: auto !important;
+    font-size: xx-small !important;
+}
 
 @media screen and (min-width: 600px) {
     .wrapper{
@@ -85,7 +94,7 @@
         color: rgb(188, 181, 181);
     }
     .contact{
-        width: 30%;
+        width: 40%;
         margin-right: 1%;
         padding: 2%;
         display:block;
@@ -111,4 +120,5 @@
         top: 20px;
         left: -50px;
     }
+
 }

@@ -5,9 +5,16 @@
         <div>
             <x-navigation/>
         </div>
+        
         <div class="wrapper d-flex">
             {{-- contacts --}}
             <div class="border rounded contact">
+                <div class="mb-3">
+                    <form class="d-flex mt-3 _search d-flex flex-column" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
                 <a class="text-decoration-none mainUserLink" href="{{'/'}}">
                     <div class="d-flex align-items-center py-2 border-bottom ">
                         <img src="{{ asset('storage/profile-pics/pp1.jpg') }}" class="users-status border rounded-circle">
