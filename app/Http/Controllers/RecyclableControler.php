@@ -28,4 +28,5 @@ class RecyclableControler extends Controller
         $result =  array_merge($data, $add);
         return $result;
     }
+
 }

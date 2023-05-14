@@ -30,9 +30,11 @@ Route::get('/check-login', [AuthController::class, 'checkLogin']);
 //routes that have a queries and other functions
 
 Route::get('/', [ShowController::class, 'index'])
-    ->middleware('auth');
+    ->middleware('auth');    
 Route::get('/group-chat/fetch', [ShowController::class, 'groupChat'])
     ->name('group-chat-fetch');
+Route::get('/user/profile', [ShowController::class, 'userProfile'])
+    ->name('user-profile');
 
 Route::get('/chat-to-user/{id}', [GetController::class, 'singleChat'])
     ->name('single-chat')->middleware('auth');
