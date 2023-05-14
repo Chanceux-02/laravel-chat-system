@@ -3,6 +3,9 @@
 ; make validations for inputs and queries
 ; kay adon ang query sang singlechat
 ; fetching data in realtime is done
+; tapos na himo sang profile pages
+
+// ma himo na sang function sa profile page para i fetch ang mga information sang user nga naka login na
 
 // ubrahan jquery kag ajax para sa realtime chat
 
