@@ -82,6 +82,14 @@
     width: auto !important;
     font-size: xx-small !important;
 }
+._editBtn{
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 20%;
+}
+.indent{
+    text-indent: 30px;
+}
 
 @media screen and (min-width: 600px) {
     .wrapper{
@@ -101,6 +109,10 @@
     }
     .n-navbar{
         padding: 0px 50px 0px 50px;
+    }
+    ._max-width{
+        max-width: 900px;
+        margin: auto;
     }
   }
 @media screen and (max-width:770px) {

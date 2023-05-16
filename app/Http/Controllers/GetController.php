@@ -48,4 +48,9 @@ class GetController extends Controller
 
         return view('ajax.singleChat', $datas);
     }
+    public function viewEditProfile(){
+        $method = new RecyclableControler;
+        $datas = $method->viewEditProfile();
+        return view('pages.editPages.editProfile', $datas);
+    }
 }

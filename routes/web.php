@@ -25,7 +25,9 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
+
 Route::get('/check-login', [AuthController::class, 'checkLogin']);
+Route::get('/editProfile', [GetController::class, 'viewEditProfile'])->name('edit-profile-page');
 
 //routes that have a queries and other functions
 

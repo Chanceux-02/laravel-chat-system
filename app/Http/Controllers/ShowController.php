@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
+use App\Models\Profile;
 
 use App\Http\Controllers\RecyclableControler;
+use Illuminate\Support\Facades\DB;
 
 class ShowController extends Controller
 {
@@ -20,9 +21,8 @@ class ShowController extends Controller
         return view('ajax.group_chat', $datas);
     }
     public function userProfile(){
-        $method = new User;
-        $method->first_name;
-        dd($method);
+        $method = new RecyclableControler;
+        $datas = $method->viewEditProfile();
         return view('pages.profilePage', $datas);
     }
 }

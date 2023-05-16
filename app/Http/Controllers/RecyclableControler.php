@@ -29,4 +29,11 @@ class RecyclableControler extends Controller
         return $result;
     }
 
+    public function viewEditProfile(){
+        $userId = auth()->id();
+        $datas = DB::table('profile_table')->where('u_id', $userId)->get();
+        $result = ['datas'=>$datas];
+        return $result;
+    }
+
 }

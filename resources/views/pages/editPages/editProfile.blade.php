@@ -9,20 +9,23 @@
                 <section class="container">
                     <div>
                         <img src="{{ asset('storage/profile-pics/'. $data->image_path) }}" alt="" class="rounded-circle users-status">
-                        <h2 class="mt-2">{{$data->first_name}} {{$data->last_name}}</h2>
+                        <input type="file" name="profilePic" class="ms-3">
+                        <div class="d-flex mt-3">
+                            <input type="text" name="first_name" value="{{$data->first_name}}">
+                            <input type="text" class="ms-3" name="last_name" value="{{$data->last_name}}">
+                        </div>
                     </div>
                 </section>
-                <a href="{{ route('edit-profile-page') }}" class="btn btn-primary _editBtn">Edit</a>
             </div>
             <hr>
             <section>
                 <ul>
                     <li class="list-unstyled">
                         <p><strong>About me:</strong></p>
-                        <p class="indent">{{$data->bio}}</p>
+                        <textarea name="bio" id="" cols="30" rows="10" value="{{$data->last_name}}" placeholder="{{$data->last_name}}"></textarea>
                     </li>
                     <li class="list-unstyled">
-                        <p><strong>Age: </strong>{{$data->age}} Years Old.</p>
+                        <input type="text" name="age" value="{{$data->age}}">
                     </li>
                 </ul>
             </section>
