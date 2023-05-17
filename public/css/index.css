@@ -121,16 +121,12 @@
 @media screen and (max-width:770px) {
     .active-circle{
         background-color: greenyellow;
-        width: 20px;
-        height: 15px;
         position: relative;
         top: 20px;
         left: -50px;
     }
     .deactive-circle{
         background-color: rgb(161, 172, 143);
-        width: 20px;
-        height: 15px;
         position: relative;
         top: 20px;
         left: -50px;

@@ -9,6 +9,5 @@
 ; ma realtime ang pag chat tapos himoan profile ang kada user nga ma manage nila ang ila nga profile
 ; search feature done
 ; Edit profile
-
-// Delete Profile
-// Delete Message (only owner can delete its message)
+; Delete Profile
+; Delete Message (only owner can delete its message)

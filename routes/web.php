@@ -51,6 +51,8 @@ Route::post('/send/group/message', [PostController::class, 'sendGroupMessage'])
     ->name('send-message');
 Route::delete('/delete/profile', [DestroyController::class, 'destroyProfile'])
     ->name('delete-profile');
+Route::delete('/delete/message', [DestroyController::class, 'destroyMessage'])
+    ->name('delete-message');
 Route::post('/edit/profile', [UpdateController::class, 'editProfile'])
     ->name('edit-profile');
 Route::post('/login', [AuthController::class, 'login'])
