@@ -83,9 +83,12 @@
     font-size: xx-small !important;
 }
 ._editBtn{
-    width: -moz-fit-content;
-    width: fit-content;
-    height: 20%;
+    width: 200px;
+    height: 30px;
+}
+._delBtn{
+    width: 120px;
+    height: 30px;
 }
 .indent{
     text-indent: 30px;
