@@ -36,16 +36,4 @@ class PostController extends Controller
         // return redirect('/');
     }
 
-    public function search(Request $req){
-        $search = $req->search;
-        $method = DB::table('profile_table')
-        ->where('first_name', 'like', $search)
-        ->orWhere('last_name', 'like', $search)
-        ->get();
-        if(count($method) == 0){
-            dd("no user");
-            return view('pages.searched', ['result' => $method]);
-        }
-        return view('pages.searched', ['result' => $method]);
-    }
 }

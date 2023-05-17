@@ -25,9 +25,6 @@ class GetController extends Controller
                 ];
         $datas = $method->allUserMessages($arr);
         return view('pages.singleChat', $datas);
-
-
-        // return view('pages.singleChat', $datas);
     }
     public function singleChatAjax($id){
         $method = new RecyclableControler;
@@ -52,5 +49,26 @@ class GetController extends Controller
         $method = new RecyclableControler;
         $datas = $method->viewEditProfile();
         return view('pages.editPages.editProfile', $datas);
+    }
+    public function search(Request $req){
+
+        $search = $req->search;
+        $searchedUser = DB::table('profile_table')
+        ->where('first_name', 'like', $search)
+        ->orWhere('last_name', 'like', $search)
+        ->get();
+        $method = new RecyclableControler;
+        $paramData = [
+            'title' => 'Group Chat',
+        ];
+        if(count($searchedUser) == 0){
+            // dd("no user");
+            return view('errors.404_not_found');
+        }
+       
+        $datas = $method->allUserMessages($paramData);
+        $datas['users'] = $searchedUser;
+        // dd($datas);
+        return view('index', $datas);
     }
 }

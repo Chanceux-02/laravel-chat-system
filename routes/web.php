@@ -41,7 +41,7 @@ Route::get('/user/profile', [ShowController::class, 'userProfile'])
 Route::get('/chat-to-user/{id}', [GetController::class, 'singleChat'])
     ->name('single-chat')->middleware('auth');
 Route::get('/chat-to-user-ajax/{id}', [GetController::class, 'singleChatAjax']);
-Route::get('/search', [PostController::class, 'search'])
+Route::get('/search', [GetController::class, 'search'])
     ->name('search');
 
 
