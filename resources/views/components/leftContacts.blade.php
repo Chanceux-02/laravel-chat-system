@@ -1,7 +1,8 @@
 <div class="mb-3">
-    <form class="d-flex mt-3 _search d-flex flex-column" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success" type="submit">Search</button>
+    <form action="{{ route('search') }}" method="GET" class="d-flex mt-3 _search d-flex flex-column" role="search">
+        @csrf
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button name="submit" class="btn btn-success" type="submit">Search</button>
     </form>
 </div>
 <a class="text-decoration-none mainUserLink" href="{{'/'}}">

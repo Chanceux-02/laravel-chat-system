@@ -4,6 +4,17 @@
 </div>
 
 <div class="mt-5 pt-5  _max-width">
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="{{ route('edit-profile') }}" method="post" enctype="multipart/form-data">
+        @csrf
         @foreach ($datas as $data)
             <div class="d-flex">
                 <section class="container">
@@ -16,20 +27,22 @@
                         </div>
                     </div>
                 </section>
+                <button type="submit" name="submit" class="btn btn-primary _editBtn">Submit</button>
             </div>
             <hr>
             <section>
                 <ul>
                     <li class="list-unstyled">
                         <p><strong>About me:</strong></p>
-                        <textarea name="bio" id="" cols="30" rows="10" value="{{$data->last_name}}" placeholder="{{$data->last_name}}"></textarea>
+                        <textarea name="bio" id="" cols="30" rows="10" value="{{$data->bio}}">{{$data->bio}}</textarea>
                     </li>
                     <li class="list-unstyled">
-                        <input type="text" name="age" value="{{$data->age}}">
+                        <input type="number" name="age" value="{{$data->age}}">
                     </li>
                 </ul>
             </section>
         @endforeach
+    </form>
 </div>
 
 @include('partials._footer')
