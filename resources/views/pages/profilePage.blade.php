@@ -12,7 +12,12 @@
                         <h2 class="mt-2">{{$data->first_name}} {{$data->last_name}}</h2>
                     </div>
                 </section>
-                <a href="{{ route('edit-profile-page') }}" class="btn btn-primary _editBtn">Edit</a>
+                <a href="{{ route('edit-profile-page') }}" class="btn btn-primary _editBtn btn-sm me-3">Edit profile</a>
+                <form action="{{ route('delete-profile') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary _delBtn btn-sm me-3">Delete Profile</button>
+                </form>
             </div>
             <hr>
             <section>

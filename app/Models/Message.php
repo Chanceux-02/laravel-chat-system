@@ -10,4 +10,5 @@ class Message extends Model
     use HasFactory;
 
     protected $table = 'messages_table';
+    protected $primaryKey = 'm_id';
 }

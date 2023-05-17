@@ -7,7 +7,7 @@
 ; ma himo na sang function sa profile page para i fetch ang mga information sang user nga naka login na
 ; ubrahan jquery kag ajax para sa realtime chat
 ; ma realtime ang pag chat tapos himoan profile ang kada user nga ma manage nila ang ila nga profile
-
-// CRUD operation
-// make a crud operation for user profile
-// make a feature that a user can delete its message
+; search feature done
+; Edit profile
+; Delete Profile
+; Delete Message (only owner can delete its message)

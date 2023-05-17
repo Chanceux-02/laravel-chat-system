@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DestroyController;
 use App\Http\Controllers\GetController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ShowController;
@@ -48,6 +49,10 @@ Route::get('/search', [GetController::class, 'search'])
 //posts
 Route::post('/send/group/message', [PostController::class, 'sendGroupMessage'])
     ->name('send-message');
+Route::delete('/delete/profile', [DestroyController::class, 'destroyProfile'])
+    ->name('delete-profile');
+Route::delete('/delete/message', [DestroyController::class, 'destroyMessage'])
+    ->name('delete-message');
 Route::post('/edit/profile', [UpdateController::class, 'editProfile'])
     ->name('edit-profile');
 Route::post('/login', [AuthController::class, 'login'])
