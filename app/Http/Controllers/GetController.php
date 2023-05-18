@@ -47,7 +47,8 @@ class GetController extends Controller
     }
     public function viewEditProfile(){
         $method = new RecyclableControler;
-        $datas = $method->viewEditProfile();
+        $title = ['title' => 'Edit Profile',];
+        $datas = $method->viewEditProfile($title);
         return view('pages.editPages.editProfile', $datas);
     }
     public function search(Request $req){
@@ -59,7 +60,7 @@ class GetController extends Controller
         ->get();
         $method = new RecyclableControler;
         $paramData = [
-            'title' => 'Group Chat',
+            'title' => 'Searched',
         ];
         if(count($searchedUser) == 0){
             // dd("no user");

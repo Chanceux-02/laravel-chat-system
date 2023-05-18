@@ -1,4 +1,4 @@
-@include('partials._header')
+@include('partials._header', ['title' => $title])
 <div>
     <x-navigation/>
 </div>

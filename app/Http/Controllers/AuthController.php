@@ -40,7 +40,7 @@ class AuthController extends Controller
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')->with('message', 'Logout successful');
+        return redirect('/login')->with('message', 'Logout successful!');
     }
 
     public function register(Request $request){
@@ -55,7 +55,8 @@ class AuthController extends Controller
 
         if($validate->fails()){
             $errMessage = $validate->messages();
-            return view('auth.register')->with('message',$errMessage);
+            // return view('auth.register')->with('message',$errMessage);
+            return back()->withErrors($errMessage);
         }
 
         $fname = strip_tags($request->input('fname'));
@@ -93,7 +94,6 @@ class AuthController extends Controller
         $profile->save();
 
         return view('auth.login')->with('message','Logged in Successful!');
-
     }
 
     public function checkLogin(){

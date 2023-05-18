@@ -3,9 +3,11 @@
 <body class="my-5">
     <h1 class="text-center mt-5">Log in</h1>
     {{-- {{$email}} --}}
-
     <div class="container">
         <div class="center-div">
+          <x-message/>
+          <x-errorHandler/>
+
           <p>Don't have an account? Register <a href="{{route('register')}}">here!</a></p>
             <form action="{{route('login')}}" method="POST">
               @csrf

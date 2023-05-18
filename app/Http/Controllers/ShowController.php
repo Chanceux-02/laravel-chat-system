@@ -22,7 +22,8 @@ class ShowController extends Controller
     }
     public function userProfile(){
         $method = new RecyclableControler;
-        $datas = $method->viewEditProfile();
+        $title = ['title' => 'User Profile'];
+        $datas = $method->viewEditProfile($title);
         return view('pages.profilePage', $datas);
     }
 }

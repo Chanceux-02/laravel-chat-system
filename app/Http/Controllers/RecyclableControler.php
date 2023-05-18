@@ -29,10 +29,13 @@ class RecyclableControler extends Controller
         return $result;
     }
 
-    public function viewEditProfile(){
+    public function viewEditProfile($add){
         $userId = auth()->id();
         $datas = DB::table('profile_table')->where('u_id', $userId)->get();
-        $result = ['datas'=>$datas];
+        $data = [
+            'datas'=>$datas,
+        ];
+        $result =  array_merge($data, $add);
         return $result;
     }
 
