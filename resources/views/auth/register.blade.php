@@ -1,6 +1,9 @@
 @include('partials._header')
 
 <body class="my-5">
+
+    <x-errorHandler/>
+    <x-message/>
     <h1 class="text-center mt-5">Register</h1>
 
     <div class="container">

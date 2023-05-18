@@ -1,4 +1,4 @@
-@include('partials._header')
+@include('partials._header', ['title' => $title])
 
 <body>
     <div class="container mt-5 pt-3">
