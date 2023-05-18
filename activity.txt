@@ -16,6 +16,5 @@
 ; move the the error handlers into components to make it reusable
 ; himuan api
 ; posts api => login, logout, register, edit/profile, delete/message, delete/profile, send/message
+; get api => /, /check/login, /placeholder/edit/profile, /chat-to-user-ajax/{id}, /search, /fetch/user-profile, /fetch/chat-user/{id} 
 
-// get api to make => /, /check/login, /placeholder/edit/profile, /chat-to-user-ajax/{id}, /search
-                    /fetch/user-profile, /fetch/chat-user/{id} 

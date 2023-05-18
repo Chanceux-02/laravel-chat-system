@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\ApiUpdateController;
 use App\Http\Controllers\Api\ApiDestroyController;
+use App\Http\Controllers\Api\ApiGetController;
 use App\Http\Controllers\Api\ApiPostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,11 @@ Route::post('/send/message', [ApiPostController::class, 'sendMessage']);
 
 Route::delete('/delete/message', [ApiDestroyController::class, 'destroyMessage']);
 Route::delete('/delete/profile', [ApiDestroyController::class, 'destroyProfile']);
+
+Route::get('/', [ApiGetController::class, 'index']);
+Route::get('/check-login', [ApiAuthController::class, 'checkLogin']);
+Route::get('/edit-profile', [ApiGetController::class, 'viewEditProfile']);
+Route::get('/all-chat/fetch', [ApiGetController::class, 'allChat']);
+Route::get('/user/profile', [ApiGetController::class, 'userProfile']);
+Route::get('/chat-to-user/{id}', [ApiGetController::class, 'singleChat']);
+Route::get('/search', [ApiGetController::class, 'search']);
