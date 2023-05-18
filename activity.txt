@@ -18,3 +18,7 @@
 ; posts api => login, logout, register, edit/profile, delete/message, delete/profile, send/message
 ; get api => /, /check/login, /placeholder/edit/profile, /chat-to-user-ajax/{id}, /search, /fetch/user-profile, /fetch/chat-user/{id} 
 
+// improve the style of the chat system
+// improve the security of the chat system
+// learn more about the middleware
+
