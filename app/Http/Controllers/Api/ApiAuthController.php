@@ -88,5 +88,13 @@ class ApiAuthController extends Controller{
 
         return response()->json(['message' => 'Register successful!'], 200);
     }
+    public function checkLogin(){
+        $check = Auth::check();
+        if ($check) {
+           return response()->json(['logged_in' => true], 200);
+        } else {
+           return response()->json(['logged_in' => false], 400);
+        }
+    }
 
 }
